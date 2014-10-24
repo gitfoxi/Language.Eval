@@ -6,9 +6,12 @@ import System.Environment (getArgs)
 import System.Exit (exitFailure)
 
 usage :: IO ()
-usage = putStrLn "usage: Eval \"1+1\"\n"
+usage = do
+    putStrLn "usage: Eval \"1+1\"\n"
+    exitFailure
 
 main = do
-    args <- Text.pack <$> getArgs
-    when (length args /= 1) (usage >>= exitFailure)
-    print $ eval (head args) []
+    args <- getArgs
+    when (length args /= 1) usage
+    let x = Text.pack (head args)
+    print $ eval x []
