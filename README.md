@@ -13,6 +13,7 @@ Sometimes you just want to evaluate a string
     λ eval "a+b * 100" [2,3]
     302
     λ eval "a+b * 100 & 0xf" [2,3]
+    14
 
 There's an example app included:
 
